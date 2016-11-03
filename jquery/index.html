@@ -93,8 +93,19 @@
 			}
 			$("#valor-total").text(total);
 			$("#quantidade-de-itens").text(items.length);
+			$(".remove-item").click(removeItem);
 		}
 		$(aposInicializado);
+		
+		var removeItem = function(event) {
+			event.preventDefault();
+			var quantidadeComoString = $("#quantidade-de-itens").text();
+			var atual = parseInt(quantidadeComoString);
+			var novaQuantidade = atual - 1;
+			$("#quantidade-de-itens").text(novaQuantidade);
+			var self = $(this);
+			self.closest("tr").remove();
+		}
 	</script>
 </body>
 </html>
